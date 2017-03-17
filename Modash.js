@@ -6,3 +6,30 @@ function truncate(string, length) {
 		return string;
 	}
 }
+ 
+function capitalize(string) {
+	return (
+		string.charAt(0).toUpperCase()+ string.slice(1).toLowerCase()
+	);
+}
+
+function camelCase(string) {
+	const words = string.split(/[\s|\-|_]+/);
+	//  \s white space
+
+	return [
+		words[0].toLowerCase(),
+		...words.slice(1).map((w) => capitalize(w))
+	].join('');
+}
+
+// console.log(camelCase('hello_world'));
+// console.log(capitalize('yo man!'));
+
+const Modash = {
+	truncate,
+	capitalize,
+	camelCase
+};
+
+export default Modash;
